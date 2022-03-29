@@ -1,0 +1,22 @@
+{
+    "builders": [
+        {
+            "type": "null",
+            "ssh_host": "localhost",
+            "ssh_port": "5555",
+            "ssh_username": "ubuntu",
+            "ssh_password": "helloworld"
+        }
+    ],
+    "provisioners": [
+        {
+            "type": "file",
+            "source": "install_script.sh",
+            "destination": "/home/ubuntu/install_script.sh"
+        },
+        {
+            "type": "shell",
+            "inline": "cd /home/ubuntu; chmod +x install_script.sh; ./install_script.sh"
+        }
+    ]
+}
